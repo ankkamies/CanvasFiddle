@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  #title
+    span#titleText #{title}
+    input#titleEdit(hidden=true)
+    button#saveTitle(hidden=true) S
+  .container
+    .row
+      .col-6
+        .row
+          p Code
+          #editor #{content}
+        .row
+          button#run Run
+          button#save Create new
+          button#update Update
+        .row
+          p Console
+          #console
+      .col-6
+        .row
+          p Canvas
+          iframe(src='/frame/', id="codeFrame", sandbox="allow-scripts")
+  script(src='/javascripts/jquery-3.1.1.min.js')
+  script(src='/javascripts/ace-min-noconflict/ace.js')
+  script(src='/javascripts/script.js')
